@@ -1,47 +1,117 @@
 #include <stdio.h>
-#pragma region typedef
+#include <limits.h>
 
-typedef int int16_m;
-
-typedef struct Node
-{
-	 int data;
-	 char name[1; 0]
-	 Node * next;
-}Node;
+#pragma region 열거형
+	 // 명명된 정수형 상수의 집합입니다.
+// enum State
+// {
+	// IDLE,
+	// ATTACK,
+	// DIE
+// };
 
 #pragma endregion
 
-	int main()
+
+int main()
 {
-		// int data = 100;
-		// int16_m value = 200;
+#pragma region 열거형
 
-		Node node1 = { 100, "Node1", NULL};
-		Node node2 = { 200, "Node2", NULL };
-		Node node3 = { 300, "Node3", NULL };
+	// enum state state;
 
-		node1.next = &node2;
+	// state = IDLE;
 
-		node2.next = &node3;
+	// printf("statedml IDLE 값 : %d\n", state);
 
-		node3.next = NULL;
+	// state = ATTACK;
+
+	// printf("state의 ATTACK 값 : %d", state)
+
+	// switch (state)
+	// {
+	// case IDLE: printf("대기 상태\n");
+		// break;
+	// case ATTACK: printf("공격 상태\n");
+		//break;
+	// case DIE: printf("죽음 상태\n");
+		// break;
+	// }
+#pragma endregion
 
 
-		// printf("node1.next : %p\n", node1.next);
-		// printf("node1.next->next : %p\n", node1.next->next);
-		// printf("node1.next->next->next : %p\n", node1.next->next->next);
+#pragma region 별
 
-		Node * currentNode = &node1;
+	// *
+	// **
+	// ***
+	// ****
+	// *****
 
-		while (currentNode != NULL)
+	// for (int i = 0; i < 5; i++)
+	// {
+		// for (int j = 0;j < 5;j++)
+		// {
+			// if (j <= i)
+			// {
+				// printf("*");
+			// }
+		// }
+		// printf("\n");
+	// }
+#pragma endregion
+
+#pragma region 합
+	// int sum = 0;
+	// for (int i = 1 ; i <= 10 ; i ++)
+	// {
+		// sum += i;
+		
+	// }
+	// printf("sum 변수의 값 : %d\n", sum);
+#pragma endregion
+
+#pragma region ASCII 코드
+	// 1963년 미국 ANSI에서 표준화한 정보교환용 7비트 부호체계이다.
+
+	// 128개의 숫자, 문자, 특수문자, 제어문자가 표현됩니다.
+
+	// char alphabet = 64;
+
+
+	// printf("alphabet 변수의 ASCII 코드의 값 : %c\n", alphabet);
+	// printf("alphabet 변수의 값 : %d\n", alphabet);
+
+	// for (int i = 0; i < 26; i++)
+	// {
+		// alphabet += 1;
+		// printf("%c\n", alphabet);
+	// }
+#pragma endregion
+
+#pragma region 최댓값과 최솟값
+	// [10] [5] [11] [1] [3]
+	int array[5] = { 10, 5, 11, 1, 3 };
+
+
+	int max = 0;
+	int min = INT_MAX;
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (max < array[i])
 		{
-			printf("currentNode의 값 : %d\n", currentNode->data);
-
-			currentNode = currentNode->next;
+			max = array[i];
 		}
+		if (min > array[i])
+		{
+			min = array[i];
+		}
+	}
+	printf("max의 값 : %d\n", max);
+	printf("min의 값 : %d\n", min);
 
 
+#pragma endregion
 
 		return 0;
 }
