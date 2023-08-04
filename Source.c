@@ -1,117 +1,52 @@
 #include <stdio.h>
-#include <limits.h>
-
-#pragma region 열거형
-	 // 명명된 정수형 상수의 집합입니다.
-// enum State
-// {
-	// IDLE,
-	// ATTACK,
-	// DIE
-// };
-
-#pragma endregion
-
 
 int main()
 {
-#pragma region 열거형
+#pragma region 이중 포인터
+	// int data = 100;
 
-	// enum state state;
+	// int* ptr1 = &data;
 
-	// state = IDLE;
+	// int** ptr2 = &ptr1;
 
-	// printf("statedml IDLE 값 : %d\n", state);
+	// **ptr2 = 999;
 
-	// state = ATTACK;
+	// printf("data의 값 : %d\n", data);
+	// printf("**ptr2의 값 : %d\n", **ptr2);
 
-	// printf("state의 ATTACK 값 : %d", state)
+	/*
+	int a = 10;
+	int b = 20;
 
-	// switch (state)
-	// {
-	// case IDLE: printf("대기 상태\n");
-		// break;
-	// case ATTACK: printf("공격 상태\n");
-		//break;
-	// case DIE: printf("죽음 상태\n");
-		// break;
-	// }
+	int* aPtr1 = &a;
+	int* bPtr1 = &b;
+
+	int ** aPtr2 = &aPtr1;
+	int ** bPtr2 = &bPtr1;
+
+	int * temp = *bPtr2;
+	*bPtr2 = *aPtr2;
+	*aPtr2 = temp;
+
+	printf("**aPtr2가 가리키는 값 : %d\n", **aPtr2);
+	printf("**bPtr2가 가리키는 값 값 : %d\n", **bPtr2);
+	*/
 #pragma endregion
 
+#pragma region 약수
 
-#pragma region 별
+	// int value = 0;
 
-	// *
-	// **
-	// ***
-	// ****
-	// *****
+	// scanf_s("%d", &value);
 
-	// for (int i = 0; i < 5; i++)
+	// for (int i = 0; i <= value; i++)
 	// {
-		// for (int j = 0;j < 5;j++)
+		// if (value % i == 0)
 		// {
-			// if (j <= i)
-			// {
-				// printf("*");
-			// }
+			// printf("%d", i);
 		// }
-		// printf("\n");
 	// }
-#pragma endregion
-
-#pragma region 합
-	// int sum = 0;
-	// for (int i = 1 ; i <= 10 ; i ++)
-	// {
-		// sum += i;
-		
-	// }
-	// printf("sum 변수의 값 : %d\n", sum);
-#pragma endregion
-
-#pragma region ASCII 코드
-	// 1963년 미국 ANSI에서 표준화한 정보교환용 7비트 부호체계이다.
-
-	// 128개의 숫자, 문자, 특수문자, 제어문자가 표현됩니다.
-
-	// char alphabet = 64;
-
-
-	// printf("alphabet 변수의 ASCII 코드의 값 : %c\n", alphabet);
-	// printf("alphabet 변수의 값 : %d\n", alphabet);
-
-	// for (int i = 0; i < 26; i++)
-	// {
-		// alphabet += 1;
-		// printf("%c\n", alphabet);
-	// }
-#pragma endregion
-
-#pragma region 최댓값과 최솟값
-	// [10] [5] [11] [1] [3]
-	int array[5] = { 10, 5, 11, 1, 3 };
-
-
-	int max = 0;
-	int min = INT_MAX;
-
-	for (int i = 0; i < 5; i++)
-	{
-		if (max < array[i])
-		{
-			max = array[i];
-		}
-		if (min > array[i])
-		{
-			min = array[i];
-		}
-	}
-	printf("max의 값 : %d\n", max);
-	printf("min의 값 : %d\n", min);
-
 
 #pragma endregion
-
-		return 0;
+	return 0;
 }
