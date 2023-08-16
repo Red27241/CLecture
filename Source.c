@@ -1,81 +1,55 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+void ReadTextFile(const char * fileName)
+{
+	FILE* readfile = fopen(fileName, "r");
 
-	int life;
-	int computer;
-	int answer;
 
-	void Init()
-	{
-		srand(time(NULL));
+	char buffer[10000] = { 0, };
 
-		life = 5;
-		computer = rand() % 50 + 1;
-	}
+	// fread()
+	// 첫 번째 매개변수 : 크기를 가지는 배열을 가리키는 포인터입니다.
+	// 두 번째 매개변수 : 읽어들일 원소의 크기이며, 단위는 바이트입니다.
+	// 세 번째 매개변수 : 읽어들일 원소들의 개수로 각 원소의 크기입니다.
+	// 네 번째 매개변수 : 데이터를 입력받을 스트림의 FILE 객체를 가리키는 포인터입니다.
+	fread(buffer, 1, 10000, readfile);
 
-	void Update()
-	{
-		printf("컴퓨터가 가지고 있는 값 : ");
+	printf("%s", buffer);
 
-		scanf_s("%d", &answer);
-	}
-
-	void Render()
-	{
-		if (computer == answer)
-		{
-			printf("\n게임에서 승리하였습니다.\n");
-			return;
-		}
-		else if (computer > answer)
-		{
-			printf("\n컴퓨터가 가지고 있는 값보다 작습니다.\n");
-			life--;
-		}
-		else if (computer < answer)
-		{
-			printf("\n컴퓨터가 가지고 있는 값보다 큽니다.\n");
-			life--;
-		}
-
-		if (life <= 0)
-		{
-			printf("\n게임에서 패배하였습니다.");
-		}
-	}
+	fclose(readfile);
+}
 
 int main()
 {
-#pragma region 랜덤 함수
-	// 0 ~ 32767 사이의 난수 값을 반환하는 함수입니다.
+#pragma region 파일 입출력
+	// 보조 기억 장치(디스크)로부터 데이터를
+	// 읽어오거나 저장하는 과정입니다.
+
+	// fopen("파일 이름", "파일 모드")
+	// "w" : 파일 쓰기
+
 	/*
-	int seed = 0;
+	FILE * filePtr = fopen("data.txt", "w");
 
-	// 1970 년 1월 1일 ~
-	srand(time(NULL));
+	const char* content = "Content";
+	content = "Content1";
 
-	for (int i = 0; i < 10; i++)
-	{
-		seed = rand() % 10 + 1;
-		printf("seed의 값 : %d\n", seed);
-	}*/
+	char content[ ] = "Content";
+
+	fputs(content, filePtr);
+
+	FILE* fileReader = fopen("data.txt", "r");
+	fgets(content, sizeof(content), fileReader);
+	printf("%s", content);
+
+
+	fclose(filePtr); // 파일 닫아주기
+	*/
+
 #pragma endregion
-
-#pragma region UP-DOWN 게임
-
-	// 게임 데이터 초기화
-	Init();
-
-	while (life > 0)
-	{
-		// 게임 업데이트 함수
-		Update();
-
-		// 게임 렌더링 함수
-		Render();
-	}
-#pragma endregion
-
+	ReadTextFile("Resources/ASCII-art.txt");
+	
+	system("cls");
+	
 	return 0;
 }
